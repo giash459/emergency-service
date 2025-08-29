@@ -1,3 +1,4 @@
+// const date = new Date().toLocaleTimeString()
 // heart function
 const hearts = document.getElementsByClassName("heart-icon");
 for(const i of hearts){
@@ -28,5 +29,26 @@ document.getElementById("call-1").addEventListener("click", function(e){
         return
     }
     document.getElementById("point-btn").innerText = pointValue
-   
+    const serviceSection = document.getElementById("call-history")
+    const div = document.createElement("div")
+    const time = new Date().toLocaleTimeString();
+    div.innerHTML = `
+    <div class="flex justify-between items-center bg-[#FAFAFA] p-3 rounded-lg mt-4">
+            <div>
+              <h2 class="text-lg font-semibold">Fire Service Number</h2>
+              <p>999</p>
+            </div>
+            <div>
+              <p>${time}</p>
+            </div>
+          </div>
+    `
+    serviceSection.appendChild(div);
+})
+
+// clear-history function
+document.getElementById("clear-history").addEventListener("click", function(e){
+  e.preventDefault()
+  const clearBtn =  document.getElementById("call-history")
+  clearBtn.innerHTML = ""
 })
